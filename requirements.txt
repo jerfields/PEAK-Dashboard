@@ -1,0 +1,9 @@
+faker
+openpyxl
+reflex
+pandas
+plotly
+pyarrow
+reflex-enterprise
+httpx
+PyGithub

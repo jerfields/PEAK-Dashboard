@@ -1,0 +1,33 @@
+def get_weather_info(code: int, is_day: int = 1) -> tuple[str, str]:
+    """Map WMO weather code to icon name and description."""
+    weather_map = {
+        0: ("sun" if is_day else "moon", "CLEAR SKY"),
+        1: ("cloud-sun" if is_day else "cloud-moon", "MAINLY CLEAR"),
+        2: ("cloud-sun" if is_day else "cloud-moon", "PARTLY CLOUDY"),
+        3: ("cloud", "OVERCAST"),
+        45: ("cloud-fog", "FOG"),
+        48: ("cloud-fog", "DEPOSITING RIME FOG"),
+        51: ("cloud-drizzle", "LIGHT DRIZZLE"),
+        53: ("cloud-drizzle", "DRIZZLE"),
+        55: ("cloud-drizzle", "DENSE DRIZZLE"),
+        56: ("cloud-drizzle", "LIGHT FREEZING DRIZZLE"),
+        57: ("cloud-drizzle", "DENSE FREEZING DRIZZLE"),
+        61: ("cloud-rain", "SLIGHT RAIN"),
+        63: ("cloud-rain", "MODERATE RAIN"),
+        65: ("cloud-rain", "HEAVY RAIN"),
+        66: ("cloud-rain", "LIGHT FREEZING RAIN"),
+        67: ("cloud-rain", "HEAVY FREEZING RAIN"),
+        71: ("snowflake", "SLIGHT SNOW FALL"),
+        73: ("snowflake", "MODERATE SNOW FALL"),
+        75: ("snowflake", "HEAVY SNOW FALL"),
+        77: ("snowflake", "SNOW GRAINS"),
+        80: ("cloud-rain-wind", "SLIGHT RAIN SHOWERS"),
+        81: ("cloud-rain-wind", "MODERATE RAIN SHOWERS"),
+        82: ("cloud-rain-wind", "VIOLENT RAIN SHOWERS"),
+        85: ("snowflake", "SLIGHT SNOW SHOWERS"),
+        86: ("snowflake", "HEAVY SNOW SHOWERS"),
+        95: ("cloud-lightning", "THUNDERSTORM"),
+        96: ("cloud-lightning-rain", "THUNDERSTORM WITH HAIL"),
+        99: ("cloud-lightning-rain", "THUNDERSTORM WITH HEAVY HAIL"),
+    }
+    return weather_map.get(code, ("cloud", "UNKNOWN"))
